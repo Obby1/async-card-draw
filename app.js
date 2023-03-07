@@ -67,6 +67,8 @@ class Deck {
         if (response.data.remaining > 0){
             return response.data.cards[0].image;
         } else{
+            let button = document.getElementById('draw-card')
+            button.innerHTML="restart game";
             return alert("no more cards")
         }
     }
@@ -85,7 +87,6 @@ async function playGame() {
             img.src= await deck.drawOneCard();
             cardStack.append(img);}
             catch{
-                button.innerHTML="restart game";
                 location.reload();
             }
           });
